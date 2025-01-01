@@ -35,8 +35,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authz) ->
-                        authz.requestMatchers("/api/hello").permitAll() // 인가 설정
+                .authorizeHttpRequests((authorizeHttpRequests) ->
+                        authorizeHttpRequests.requestMatchers("/api/hello").permitAll() // 인가 설정
                                 .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
